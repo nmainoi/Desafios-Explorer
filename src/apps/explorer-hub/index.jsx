@@ -19,18 +19,23 @@ export function ExplorerHub() {
                     <Avatar />
                 </Header>
                 <Main>
-                    <About/>
+                    <About />
                     <Projects title={`Projetos Explorer`}>
-                        <Cards 
-                        onClick={() => navigate("/rocketsect")}
-                        title={<LogoRocketSect/>} 
-                        description='Landing page simples'
-                        imageSrc={'https://i.imgur.com/MbgaTih.png'}/>
-                         <Cards 
-                        onClick={() => navigate("/rocketforms")}
-                        title={`Forms`} 
-                        description='Formulario simples'
-                        imageSrc={'https://i.imgur.com/xjWyHzQ.png'}/>
+                        <Cards
+                            onClick={() => navigate("/rocketsect")}
+                            title={<LogoRocketSect />}
+                            description='Landing page simples'
+                            imageSrc={'https://i.imgur.com/MbgaTih.png'} />
+                        <Cards
+                            onClick={() => navigate("/rocketforms")}
+                            title={`Forms`}
+                            description='Formulario simples'
+                            imageSrc={'https://i.imgur.com/xjWyHzQ.png'} />
+                        <Cards
+                            onClick={() => navigate("/spacecream")}
+                            title={`Space Cream`}
+                            description='Mobile First, trabalhando com responsividade'
+                            imageSrc={'https://i.imgur.com/YBIxAQW.png'} />
 
                     </Projects>
                 </Main>
