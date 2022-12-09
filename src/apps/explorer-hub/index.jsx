@@ -36,6 +36,11 @@ export function ExplorerHub() {
                             title={`Space Cream`}
                             description='Mobile First, trabalhando com responsividade'
                             imageSrc={'https://i.imgur.com/YBIxAQW.png'} />
+                               <Cards
+                            onClick={() => navigate("/timefocus")}
+                            title={`Time Focus`}
+                            description='Pomodoro Timer, com dark theme'
+                            imageSrc={'https://i.imgur.com/QI1stGs.png'} />
 
                     </Projects>
                 </Main>
