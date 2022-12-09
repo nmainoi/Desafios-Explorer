@@ -100,7 +100,7 @@ export const TimeFocus = () => {
         SetMinutes(minutes => minutes + 5)
     }
     const HandleRemove = () => {
-        if (minutes === 0) return
+        if (minutes === 0 || minutes - 5 <= 0) return
         SetMinutes(minutes => minutes - 5)
     }
     return (
