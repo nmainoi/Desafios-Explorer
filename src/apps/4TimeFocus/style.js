@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+
+export const ToggleTheme = styled.button`
+    border: none;
+    background: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    `;
 export const Container = styled.div`
 
 display: flex;
@@ -9,7 +22,7 @@ align-items: center;
 width: 100%;
 gap: 100px;
 height: 100vh;
-
+background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
 `;
 
 export const TimeWrapper = styled.div`
@@ -29,6 +42,9 @@ display: flex;
 
 width: 250px;
 align-self: center;
+> * {
+    color: ${({ theme }) => theme.COLORS.TEXT};
+}
 
 `
 export const ButtonTimerArea = styled.div`
@@ -45,7 +61,7 @@ justify-content: space-between;
 
 export const OptionsWrapper = styled.div`
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr 1fr; 
 grid-gap: 32px;
 
 `;
@@ -56,7 +72,7 @@ width: 100%;
 
 export const ButtonTheme = styled.button`
     border: none;
-    background-color: ${(props) => props.isSelect ? "#02799D" : "#E1E1E6"};
+    background-color: ${({isSelect, theme}) => isSelect ? theme.COLORS.SELECTED : theme.COLORS.BUTTON };
     border-radius: 24px;
     width: 138px;
     height: 152px;

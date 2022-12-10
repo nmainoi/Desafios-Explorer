@@ -15,7 +15,7 @@ export const Slider = styled.input`
 width: 100%;
 height: 4px;
 border-radius: 4px;
-background-color: #E1E1E6;
+background-color: ${({ theme }) => theme.COLORS.BUTTON};
 outline: none;
 opacity: 1;
 
@@ -25,7 +25,7 @@ opacity: 1;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: gray;
+    background-color: ${({ theme }) => theme.COLORS.MAIN};
     cursor: pointer;
 }
 

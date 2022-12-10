@@ -1,11 +1,32 @@
-import { Container, TimeWrapper, TimerArea, ButtonTimerArea, OptionsWrapper, VolumeWrapper, ButtonTheme } from "./style";
-import { PlayIcon, StopIcon, AddIcon, RemoveIcon, FireIcon, FlorestIcon, HouseIcon, RainIcon } from "./assets/icons";
+import { Container,
+     TimeWrapper,
+     TimerArea,
+     ButtonTimerArea,
+     OptionsWrapper,
+     VolumeWrapper,
+     ButtonTheme,
+    ToggleTheme } from "./style";
+import { PlayIcon,
+     StopIcon,
+     AddIcon,
+     RemoveIcon,
+     FireIcon,
+     FlorestIcon,
+     HouseIcon,
+     RainIcon,
+    DarkThemeIcon,
+    LigthThemeIcon } from "./assets/icons";
 
 import React, { useState, useEffect, useRef } from 'react';
 import { SliderInput } from "./components/slider";
-
+import { ThemeProvider } from "styled-components";
+import { themeWhite ,themeDark } from "./theme/theme";
 export const TimeFocus = () => {
 
+    const [theme, setTheme] = useState(
+        themeWhite()
+    )
+    const [isDarkTheme, setisDarkTheme] = useState(false)
     const [volume, setVolume] = useState(50)
     const [minutes, SetMinutes] = useState(25)
     const [seconds, SetSeconds] = useState(0)
@@ -19,7 +40,7 @@ export const TimeFocus = () => {
         if (event === sound)
             return "white"
         else
-            return "#323238"
+            return theme.COLORS.MAIN;
     }
     const HandleSound = (event) => {
         if(sound === event){
@@ -103,7 +124,20 @@ export const TimeFocus = () => {
         if (minutes === 0 || minutes - 5 <= 0) return
         SetMinutes(minutes => minutes - 5)
     }
+    const HandleTheme = () => {
+       
+        if (isDarkTheme) {
+
+            setTheme(themeWhite())
+        }
+        else {
+            setTheme(themeDark())
+        }
+        setisDarkTheme(!isDarkTheme)
+
+    }
     return (
+        <ThemeProvider theme={theme}>
         <Container>
             <TimeWrapper>
 
@@ -114,14 +148,14 @@ export const TimeFocus = () => {
                 </TimerArea>
 
                 <ButtonTimerArea>
-                    <button onClick={() => HandleState(true)}><PlayIcon /></button>
-                    <button onClick={() => HandleState(false)}><StopIcon /></button>
-                    <button onClick={HandleAdd} ><AddIcon /></button>
-                    <button onClick={HandleRemove}><RemoveIcon /></button>
+                    <button onClick={() => HandleState(true)}><PlayIcon fill={HandleFill(``)}/></button>
+                    <button onClick={() => HandleState(false)}><StopIcon fill={HandleFill(``)}/></button>
+                    <button onClick={HandleAdd} ><AddIcon fill={HandleFill(``)}/></button>
+                    <button onClick={HandleRemove}><RemoveIcon fill={HandleFill(``)}/></button>
                 </ButtonTimerArea>
 
                 <VolumeWrapper>
-                    <SliderInput value={volume} HandleSlider={HandleSlider} />
+                    <SliderInput value={volume} HandleSlider={HandleSlider} fill={ theme.COLORS.MAIN}/>
                 </VolumeWrapper>
 
             </TimeWrapper>
@@ -152,6 +186,10 @@ export const TimeFocus = () => {
 
             </OptionsWrapper>
             <audio ref={audioRef}  />
+            <ToggleTheme onClick={HandleTheme} >
+                {isDarkTheme ? <LigthThemeIcon fill={theme.COLORS.TEXT} /> : <DarkThemeIcon fill={theme.COLORS.TEXT} />}
+                 </ToggleTheme>
         </Container>
+        </ThemeProvider>
     )
 }
