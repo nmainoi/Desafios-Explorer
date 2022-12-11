@@ -6,6 +6,7 @@ import { RocketForms } from '../apps/2RocketForms';
 import { SpaceCream } from '../apps/3SpaceCream';
 import { TimeFocus } from '../apps/4TimeFocus';
 import { GitFav } from '../apps/5GitFav';
+import { SpaUniverse } from '../apps/6SpaUniverse';
 export function PagesRoutes() {
   return (
     <Routes>
@@ -15,6 +16,7 @@ export function PagesRoutes() {
       <Route path="/spacecream" element={<SpaceCream />} />
       <Route path="/timefocus" element={<TimeFocus />} />
       <Route path="/gitfav" element={<GitFav />} />
+      <Route path="/spauniverse" element={<SpaUniverse />} />
     </Routes>
   );
 }

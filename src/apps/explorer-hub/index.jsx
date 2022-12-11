@@ -44,8 +44,13 @@ export function ExplorerHub() {
                         <Cards
                             onClick={() => navigate("/gitfav")}
                             title={`Git Fav`}
-                            description='Consumo de api do git hub'
-                            imageSrc={'https://i.imgur.com/QI1stGs.png'} />
+                            description='Consumo de api do git hub e armazenamento no local storage'
+                            imageSrc={'https://i.imgur.com/I0Te4kX.png'} />
+                                   <Cards
+                            onClick={() => navigate("/spauniverse")}
+                            title={`Spa Universe`}
+                            description='Mockup do projeto SPA universe'
+                            imageSrc={'https://i.imgur.com/JX373tv.png'} />
                     </Projects>
                 </Main>
             </Container>
